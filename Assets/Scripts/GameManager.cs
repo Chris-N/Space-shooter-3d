@@ -9,9 +9,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] int maxHumans = 10;
     [SerializeField] int score = 0;
 
-    // Trying to using the Human save count from PlayerCollision script
-    // This will increase the speed of enemeis as more get saved!
-
     [SerializeField] GameObject player;
     [HideInInspector] public bool isGameOver = false;
     [SerializeField] TextMeshProUGUI humanSavedText;
@@ -87,7 +84,6 @@ public class GameManager : MonoBehaviour
     {
         if (player == null && !isGameOver)
         {
-            Debug.Log("Game DONE");
             if (ThemeMusic.instance != null)
                 ThemeMusic.instance.gameObject.SetActive(false);
             loseUI.SetActive(true);

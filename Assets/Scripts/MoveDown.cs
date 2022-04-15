@@ -7,12 +7,6 @@ public class MoveDown : MonoBehaviour
     public float speed = 3.0f;
     private float positionDestroyY = -0.5f;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {

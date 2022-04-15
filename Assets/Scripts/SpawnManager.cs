@@ -28,12 +28,6 @@ public class SpawnManager : MonoBehaviour
         StartCoroutine(SpawnHuman());
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     void SpawnRandomEnemy()
     {
         if (gm.isGameOver) return;
@@ -45,7 +39,7 @@ public class SpawnManager : MonoBehaviour
 
         GameObject newEnemy = Instantiate(enemyArr[randomIndex], randomPosition, enemyArr[randomIndex].transform.rotation);
 
-        // Adjust with difficulty?
+        // [Future improvement] Adjust with difficulty?
         newEnemy.GetComponent<MoveLeft>().speed += gm.GetHumanSaved();
     }
 

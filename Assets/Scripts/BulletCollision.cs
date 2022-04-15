@@ -17,7 +17,6 @@ public class BulletCollision : MonoBehaviour
         {
             globalSrc = GameObject.Find("Global Sound").GetComponent<AudioSource>();
 
-            Debug.Log("Killed enemy");
             ParticleSystem ps = Instantiate(explosion);
             ps.transform.position = collision.gameObject.transform.position;
             ps.Play();
