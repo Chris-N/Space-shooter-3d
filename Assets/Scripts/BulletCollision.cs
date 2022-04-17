@@ -5,6 +5,7 @@ using UnityEngine;
 public class BulletCollision : MonoBehaviour
 {
     public ParticleSystem explosion;
+    public ParticleSystem humanDeath;
     public AudioClip enemyDestroySound;
 
     EnemyPoints enemyPoints;
@@ -18,6 +19,20 @@ public class BulletCollision : MonoBehaviour
             globalSrc = GameObject.Find("Global Sound").GetComponent<AudioSource>();
 
             ParticleSystem ps = Instantiate(explosion);
+            ps.transform.position = collision.gameObject.transform.position;
+            ps.Play();
+            Destroy(ps.gameObject, 2);
+
+            globalSrc.PlayOneShot(enemyDestroySound, 1.0f);
+            UpdateScore(collision.gameObject);
+            Destroy(collision.gameObject);
+            Destroy(gameObject);
+        }
+        if (collision.gameObject.CompareTag("Human"))
+        {
+            globalSrc = GameObject.Find("Global Sound").GetComponent<AudioSource>();
+
+            ParticleSystem ps = Instantiate(humanDeath);
             ps.transform.position = collision.gameObject.transform.position;
             ps.Play();
             Destroy(ps.gameObject, 2);

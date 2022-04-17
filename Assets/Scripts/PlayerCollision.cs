@@ -38,18 +38,28 @@ public class PlayerCollision : MonoBehaviour
             gameObject.transform.Translate(Vector3.forward * 10);
             Destroy(gameObject, selfDestroySound.length);
         }
-    }
 
-    private void OnTriggerEnter(Collider other)
-    {
         if (isColliding) return;
 
         isColliding = true;
-        if (other.gameObject.CompareTag("Human"))
+        if (collision.gameObject.CompareTag("Human"))
         {
             gm.IncrementHumanSaved();
             audioSrc.PlayOneShot(humanSound, 1.0f);
-            Destroy(other.gameObject);
+            Destroy(collision.gameObject);
         }
     }
+
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (isColliding) return;
+
+    //    isColliding = true;
+    //    if (other.gameObject.CompareTag("Human"))
+    //    {
+    //        gm.IncrementHumanSaved();
+    //        audioSrc.PlayOneShot(humanSound, 1.0f);
+    //        Destroy(other.gameObject);
+    //    }
+    //}
 }
