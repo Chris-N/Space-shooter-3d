@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public bool isGameOver = false;
     [SerializeField] TextMeshProUGUI humanSavedText;
     [SerializeField] TextMeshProUGUI scoreText;
+    [SerializeField] TextMeshProUGUI finalScoreText;
 
     [SerializeField] GameObject winUI;
     [SerializeField] GameObject loseUI;
@@ -26,6 +27,7 @@ public class GameManager : MonoBehaviour
         {
             winUI.SetActive(true);
             isGameOver = true;
+            finalScoreText.gameObject.SetActive(finalScoreText);
             player.GetComponent<SphereCollider>().enabled = false;
             StartCoroutine(WinningFlight());
         }
@@ -66,6 +68,7 @@ public class GameManager : MonoBehaviour
     void DisplayScore()
     {
         scoreText.text = $"Score: {score}";
+        finalScoreText.text = scoreText.text;
     }
     void DisplayHumansSaved()
     {
@@ -75,7 +78,8 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ThemeMusic.instance.gameObject.SetActive(true);
+        if(ThemeMusic.instance != null)
+            ThemeMusic.instance.gameObject.SetActive(true);
         DisplayHumansSaved();
     }
 
@@ -88,6 +92,7 @@ public class GameManager : MonoBehaviour
                 ThemeMusic.instance.gameObject.SetActive(false);
             loseUI.SetActive(true);
             isGameOver = true;
+            finalScoreText.gameObject.SetActive(isGameOver);
         }
     }
 }

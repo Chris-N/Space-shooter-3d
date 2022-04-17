@@ -10,7 +10,8 @@ public class MainMenu : MonoBehaviour
     public void NextScene()
     {
         SceneManager.LoadScene(nextScene);
-        ThemeMusic.instance.gameObject.SetActive(true);
+        if (ThemeMusic.instance != null)
+            ThemeMusic.instance.gameObject.SetActive(true);
     }
     public void ReloadScene()
     {
