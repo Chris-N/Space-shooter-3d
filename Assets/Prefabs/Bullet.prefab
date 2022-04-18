@@ -126,6 +126,7 @@ MonoBehaviour:
   explosion: {fileID: 7546511666435429624, guid: b1e68f12970f16140b3368783b3d28fd, type: 3}
   humanDeath: {fileID: 2903522472803502529, guid: 31a3928b0f86547418425d43a376d7f0, type: 3}
   enemyDestroySound: {fileID: 8300000, guid: af2b012ecebc34a91b65a0351bd46cc7, type: 3}
+  humanDestroySound: {fileID: 8300000, guid: c053c3d2a711144dcb83ba80730f20a6, type: 3}
 --- !u!54 &-5627912725600652670
 Rigidbody:
   m_ObjectHideFlags: 0

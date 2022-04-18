@@ -7,6 +7,7 @@ public class BulletCollision : MonoBehaviour
     public ParticleSystem explosion;
     public ParticleSystem humanDeath;
     public AudioClip enemyDestroySound;
+    public AudioClip humanDestroySound;
 
     EnemyPoints enemyPoints;
     GameObject gameManager;
@@ -37,7 +38,7 @@ public class BulletCollision : MonoBehaviour
             ps.Play();
             Destroy(ps.gameObject, 2);
 
-            globalSrc.PlayOneShot(enemyDestroySound, 1.0f);
+            globalSrc.PlayOneShot(humanDestroySound, 1.0f);
             UpdateScore(collision.gameObject);
             Destroy(collision.gameObject);
             Destroy(gameObject);
