@@ -44,7 +44,10 @@ public class PlayerCollision : MonoBehaviour
         isColliding = true;
         if (collision.gameObject.CompareTag("Human"))
         {
+            EnemyPoints go = collision.gameObject.GetComponentInParent<EnemyPoints>();
             gm.IncrementHumanSaved();
+            gm.AddScore(-go.GetPoints());
+
             audioSrc.PlayOneShot(humanSound, 1.0f);
             Destroy(collision.gameObject);
         }
