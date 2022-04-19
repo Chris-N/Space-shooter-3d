@@ -48,7 +48,7 @@ public class SpawnManager : MonoBehaviour
         if (gm.isGameOver) yield break;
 
         int humanCount = 0;
-        while (true && humanCount != gm.TotalHumans())
+        while (true)
         {
             float seconds = Random.Range(3.0f, 8.0f);
             yield return new WaitForSeconds(seconds);

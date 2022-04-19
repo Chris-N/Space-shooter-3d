@@ -9,6 +9,8 @@ public class MainMenu : MonoBehaviour
 
     public void NextScene()
     {
+        PlayerPrefs.DeleteKey("Score");
+        PlayerPrefs.DeleteKey("Game Round");
         SceneManager.LoadScene(nextScene);
         if (ThemeMusic.instance != null)
             ThemeMusic.instance.gameObject.SetActive(true);
@@ -19,6 +21,21 @@ public class MainMenu : MonoBehaviour
     }
     public void Quit()
     {
+        PlayerPrefs.DeleteKey("Score");
+        PlayerPrefs.DeleteKey("Game Round");
         Application.Quit();
+    }
+
+    // Possible display high score to be competitive at game over screen
+    void SetHighScore()
+    {
+        if (PlayerPrefs.HasKey("Score"))
+        {
+            int newHighScore = PlayerPrefs.GetInt("Score");
+            if (newHighScore > PlayerPrefs.GetInt("High Score"))
+            {
+
+            }
+        }
     }
 }

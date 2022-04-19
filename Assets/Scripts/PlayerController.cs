@@ -37,7 +37,7 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1") && !gm.isGameOver)
         {
-            audioSrc.PlayOneShot(shootSound, 0.3f);
+            audioSrc.PlayOneShot(shootSound, 0.1f);
             Instantiate(bullet, transform.position + offsetBullet, bullet.transform.rotation);
         }
     }

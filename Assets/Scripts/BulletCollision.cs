@@ -24,7 +24,7 @@ public class BulletCollision : MonoBehaviour
             ps.Play();
             Destroy(ps.gameObject, 2);
 
-            globalSrc.PlayOneShot(enemyDestroySound, 1.0f);
+            globalSrc.PlayOneShot(enemyDestroySound, 0.3f);
             UpdateScore(collision.gameObject);
             Destroy(collision.gameObject);
             Destroy(gameObject);

@@ -5,8 +5,9 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    int gameRounds = 1;
     int humansSavedCount = 0;
-    [SerializeField] int maxHumans = 10;
+    [SerializeField] int maxHumans = 3;
     [SerializeField] int score = 0;
 
     [SerializeField] GameObject player;
@@ -25,10 +26,12 @@ public class GameManager : MonoBehaviour
 
         if (humansSavedCount == maxHumans)
         {
+            PlayerPrefs.SetInt("Game Round", ++gameRounds);
             winUI.SetActive(true);
             isGameOver = true;
             finalScoreText.gameObject.SetActive(finalScoreText);
             player.GetComponent<SphereCollider>().enabled = false;
+            player.GetComponent<Rigidbody>().isKinematic = true;
             StartCoroutine(WinningFlight());
         }
     }
@@ -53,7 +56,10 @@ public class GameManager : MonoBehaviour
     {
         return maxHumans;
     }
-
+    public int GetScore()
+    {
+        return score;
+    }
     public void AddScore(int points)
     {
         score += points;
@@ -78,7 +84,14 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if(ThemeMusic.instance != null)
+        if (PlayerPrefs.HasKey("Score"))
+        {
+            AddScore(PlayerPrefs.GetInt("Score"));
+            gameRounds = PlayerPrefs.GetInt("Game Round");
+        }
+
+        maxHumans *= gameRounds;
+        if (ThemeMusic.instance != null)
             ThemeMusic.instance.gameObject.SetActive(true);
         DisplayHumansSaved();
     }
@@ -88,6 +101,8 @@ public class GameManager : MonoBehaviour
     {
         if (player == null && !isGameOver)
         {
+            PlayerPrefs.DeleteKey("Score");
+            PlayerPrefs.DeleteKey("Game Round");
             if (ThemeMusic.instance != null)
                 ThemeMusic.instance.gameObject.SetActive(false);
             loseUI.SetActive(true);

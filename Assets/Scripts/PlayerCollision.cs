@@ -27,7 +27,6 @@ public class PlayerCollision : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy") && !gm.isGameOver)
         {
-            Debug.Log("Player Destroyed!!");
             ParticleSystem ps = Instantiate(selfExplosion);
             ps.transform.position = collision.transform.position;
 
@@ -48,6 +47,7 @@ public class PlayerCollision : MonoBehaviour
             gm.IncrementHumanSaved();
             gm.AddScore(-go.GetPoints());
 
+            PlayerPrefs.SetInt("Score", gm.GetScore());
             audioSrc.PlayOneShot(humanSound, 1.0f);
             Destroy(collision.gameObject);
         }
