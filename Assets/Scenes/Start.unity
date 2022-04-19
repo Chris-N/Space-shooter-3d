@@ -1667,7 +1667,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac1c48d34690f1a4dacbeef262270a36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHumans: 3
+  maxHumans: 4
   score: 0
   player: {fileID: 988403824}
   isGameOver: 0

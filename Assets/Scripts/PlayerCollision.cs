@@ -52,17 +52,4 @@ public class PlayerCollision : MonoBehaviour
             Destroy(collision.gameObject);
         }
     }
-
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if (isColliding) return;
-
-    //    isColliding = true;
-    //    if (other.gameObject.CompareTag("Human"))
-    //    {
-    //        gm.IncrementHumanSaved();
-    //        audioSrc.PlayOneShot(humanSound, 1.0f);
-    //        Destroy(other.gameObject);
-    //    }
-    //}
 }

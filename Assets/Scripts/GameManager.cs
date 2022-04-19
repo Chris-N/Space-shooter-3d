@@ -101,6 +101,8 @@ public class GameManager : MonoBehaviour
     {
         if (player == null && !isGameOver)
         {
+            SetHighScore();
+
             PlayerPrefs.DeleteKey("Score");
             PlayerPrefs.DeleteKey("Game Round");
             if (ThemeMusic.instance != null)
@@ -108,6 +110,18 @@ public class GameManager : MonoBehaviour
             loseUI.SetActive(true);
             isGameOver = true;
             finalScoreText.gameObject.SetActive(isGameOver);
+        }
+    }
+
+    void SetHighScore()
+    {
+        if (PlayerPrefs.HasKey("Score"))
+        {
+            int newHighScore = PlayerPrefs.GetInt("Score");
+            if (newHighScore > PlayerPrefs.GetInt("High Score"))
+            {
+                PlayerPrefs.SetInt("High Score", newHighScore);
+            }
         }
     }
 }
