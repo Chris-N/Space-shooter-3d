@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
 {
     int gameRounds = 1;
     int humansSavedCount = 0;
-    [SerializeField] int maxHumans = 3;
+    [SerializeField] int maxHumans = 4;
     [SerializeField] int score = 0;
 
     [SerializeField] GameObject player;
