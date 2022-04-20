@@ -30,7 +30,7 @@ public class PlayerCollision : MonoBehaviour
             ParticleSystem ps = Instantiate(selfExplosion);
             ps.transform.position = collision.transform.position;
 
-            audioSrc.PlayOneShot(selfDestroySound, 1.0f);
+            audioSrc.PlayOneShot(selfDestroySound, 0.5f);
             Destroy(ps.gameObject, 2.0f);
 
             // Hide Player until sound ends

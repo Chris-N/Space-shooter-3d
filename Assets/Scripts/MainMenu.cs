@@ -11,8 +11,8 @@ public class MainMenu : MonoBehaviour
 
     void Start()
     {
-        if (PlayerPrefs.HasKey("High Score"))
-            highScoreText.text = $"High Score: {PlayerPrefs.GetInt("High Score")}"; ;
+        if (PlayerPrefs.HasKey("High Score") && highScoreText != null)
+            highScoreText.text = $"High Score: {PlayerPrefs.GetInt("High Score")}";
     }
 
     public void NextScene()
