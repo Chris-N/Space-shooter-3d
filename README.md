@@ -1,9 +1,11 @@
 # Space-shooter-3d
  First game. Move your spaceship to shoot enemies and save humans.
  
- Arrow keys or WASD kesy: Movement
- Left-ctrl or left-click: Fire
+ ## Game Instructions
+ - Movement: Arrow or WASD keys
+ - Fire: Left-ctrl or left-click
  
  Goal: Save humans and get the highest score!
 
-Uploaded game is playable [here](https://play.unity.com/mg/other/space-shooter-73)
+## Live version to play
+[Space Shooter](https://play.unity.com/mg/other/space-shooter-73)
